@@ -1,0 +1,35 @@
+version: 0.2
+
+env:
+  # variables:
+  #   S3_BUCKET: "votre-bucket-de-stockage"
+  #  Secrets Manager ou Parameter Store peuvent être intégrés ici
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20 # Exemple pour un site React/Vue/Angular
+    commands:
+      - echo "Installation des dépendances..."
+      # - npm install
+  
+  pre_build:
+    commands:
+      - echo "Vérification des fichiers..."
+      # - ls -R
+
+  build:
+    commands:
+      - echo "Génération du site statique..."
+      # - npm run build
+
+  post_build:
+    commands:
+      - echo "Build terminé le $(date)"
+      # Optionnel : synchronisation vers S3 pour stockage ou déploiement
+      # - aws s3 sync build/ s3://$S3_BUCKET/ --delete
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: build # Dossier contenant les fichiers générés
