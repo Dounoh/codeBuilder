@@ -24,7 +24,7 @@ phases:
       # Optionnel : synchronisation vers S3 pour stockage ou déploiement
       # - aws s3 sync build/ s3://$S3_BUCKET/ --delete
 
-artifacts:
-  files:
-    - '**/*'
-  base-directory: build # Dossier contenant les fichiers générés
+# artifacts:
+#   files:
+#     - '**/*'
+#   base-directory: build # Dossier contenant les fichiers générés
